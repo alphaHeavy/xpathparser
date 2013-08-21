@@ -1,0 +1,28 @@
+Name:                alphaheavy-xpathparsers
+Version:             0.1
+License:             BSD3
+Copyright:           Alpha Heavy Industries
+Category:            Data
+Build-type:          Simple
+Cabal-version:       >=1.10
+License:             BSD3
+License-File:        LICENSE
+
+Library
+  Default-Language:  Haskell2010
+  Exposed-modules:   AlphaHeavy.XPathParsers
+  Other-modules:     Bindings.XPathParsers
+
+  Build-depends:     base == 4.*,
+                     bindings-DSL >= 1.0.12,
+                     bytestring >= 0.9.2.0,
+                     text >= 0.11
+
+  Build-tools:       hsc2hs
+  GHC-Options:       -Wall -auto-all
+  CC-Options:        -O3 -ggdb -Wall -fstrict-aliasing
+  C-Sources:         cbits/eval.c cbits/parse.c
+  Include-Dirs:      cbits
+                     /usr/include/libxml2
+  Extra-Libraries:   xml2
+
